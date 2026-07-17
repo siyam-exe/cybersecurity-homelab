@@ -1,7 +1,7 @@
-# Personal Cybersecurity Homelab
+<h1 align="center">Cybersecurity Homelab with Wazuh, Suricata, DVWA, Juice Shop & Metasploitable</h1>
 
 <p align="center">
-  <img src="./assets/architecture/homelab-architecture.png" width="100%" alt="Personal Cybersecurity Homelab Architecture">
+  <img src="./assets/architecture/homelab-architecture.png" width="100%" alt="Cybersecurity Homelab with Wazuh, Suricata, DVWA, Juice Shop and Metasploitable Architecture">
 </p>
 
 <p align="center">
