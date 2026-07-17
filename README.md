@@ -5,12 +5,12 @@
 </p>
 
 <p align="center">
-  <b>A beginner-friendly cybersecurity homelab guide for building a private SOC lab with Ubuntu Server, Docker, Wazuh SIEM, Suricata IDS, DVWA, Juice Shop, and Metasploitable.</b>
+  <b>My personal cybersecurity homelab documentation: a private SOC-style lab built with Ubuntu Server, Docker, Wazuh SIEM, Suricata IDS, DVWA, Juice Shop, and Metasploitable.</b>
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Cybersecurity-Homelab-111827" alt="Cybersecurity Homelab">
-  <img src="https://img.shields.io/badge/Step--by--Step-Guide-2563EB" alt="Step by Step Guide">
+  <img src="https://img.shields.io/badge/Homelab-Documentation-2563EB" alt="Homelab Documentation">
   <img src="https://img.shields.io/badge/Ubuntu%20Server-22.04.5-E95420?logo=ubuntu&logoColor=white" alt="Ubuntu Server 22.04.5">
   <img src="https://img.shields.io/badge/Wazuh-SIEM%20%26%20XDR-005571" alt="Wazuh SIEM">
   <img src="https://img.shields.io/badge/Suricata-Network%20IDS-F05A28" alt="Suricata IDS">
@@ -18,15 +18,17 @@
   <img src="https://img.shields.io/badge/Tailscale-Private%20Access-242424?logo=tailscale&logoColor=white" alt="Tailscale Private Access">
 </p>
 
-## Cybersecurity Homelab Guide
+## Cybersecurity Homelab Documentation
 
-This repository is a complete **step-by-step cybersecurity homelab tutorial** built around a realistic small SOC workflow:
+This repository documents my personal **cybersecurity homelab** from the ground up. It is written as my own build log, reference guide, configuration record, and detection notes for a private SOC-style lab.
+
+The lab follows this workflow:
 
 ```text
 Attack simulation -> vulnerable server/app -> logs and alerts -> Wazuh rules -> SIEM dashboard investigation
 ```
 
-The goal is not just to install tools. The goal is to build a private lab where you can safely practice:
+The goal was not just to install tools. I wanted a lab that felt closer to a small internal security environment, where I could safely practice:
 
 - Wazuh SIEM setup and endpoint monitoring
 - Suricata IDS network detection
@@ -37,11 +39,11 @@ The goal is not just to install tools. The goal is to build a private lab where 
 - web attack detection for SQL injection, XSS, traversal, command injection, brute-force-like behavior, suspicious uploads, and recon paths
 - SOC-style dashboard design and alert investigation
 
-Everything is documented for a beginner starting from old hardware and ending with working Wazuh dashboards.
+The documentation is detailed enough for someone else to follow, but it is primarily the record of how this homelab is designed, configured, operated, and tested.
 
-## What You Will Build
+## What This Homelab Contains
 
-| Layer | What This Guide Builds |
+| Layer | What I Documented |
 |---|---|
 | Server | Ubuntu Server 22.04.5 LTS on a dedicated homelab machine |
 | Remote access | Tailscale private access for administration and testing |
@@ -55,9 +57,9 @@ Everything is documented for a beginner starting from old hardware and ending wi
 | Dashboards | Four Wazuh dashboards for SOC overview, web attacks, IDS/legacy server, and host security |
 | Operations | Start/stop playbooks, health checks, backups, log rotation, and detection tests |
 
-## Who This Is For
+## Who This May Help
 
-This guide is useful if you are searching for:
+This repo is my homelab documentation first, but it may also help anyone searching for:
 
 - cybersecurity homelab guide
 - beginner cybersecurity homelab
@@ -72,7 +74,7 @@ This guide is useful if you are searching for:
 - Metasploitable monitoring
 - step-by-step homelab setup
 
-It is written for learners who want a practical blue-team lab without exposing vulnerable services to the public internet.
+It is especially relevant if you want to see how a real personal lab can be organized without exposing vulnerable services to the public internet.
 
 ## Start Here
 
@@ -80,7 +82,7 @@ Begin with the roadmap:
 
 [docs/index.md](./docs/index.md)
 
-That page explains the setup order, what each section teaches, and what should work before moving to the next phase.
+That page explains the order of the documentation, what each section covers, and what should be working before moving to the next phase.
 
 ## Guide Map
 
@@ -99,7 +101,7 @@ That page explains the setup order, what each section teaches, and what should w
 | [Operations](./docs/10-operations/01-start-lab.md) | Start/stop flow, health checks, backups, log rotation |
 | [Attack Simulation](./docs/11-attack-simulation/01-testing-rules.md) | Safe Nmap, DVWA, Juice Shop, and Metasploitable tests |
 | [Limitations And Lessons](./docs/12-limitations-and-lessons/01-hardware-limitations.md) | Hardware limits, Wazuh limits, detection gaps, lessons learned |
-| [Playbooks](./docs/13-playbooks/01-start-wazuh.md) | Copy-paste operational command guides |
+| [Playbooks](./docs/13-playbooks/01-start-wazuh.md) | Operational command notes for running the lab |
 
 ## Final Architecture
 
@@ -168,9 +170,9 @@ exports/wazuh-dashboards/wazuh-dashboards.ndjson
 ```text
 .
 ├── archive/     # archived older documentation
-├── assets/      # diagrams and screenshots used by the guide
+├── assets/      # diagrams and screenshots used by the documentation
 ├── configs/     # sanitized config examples from the final lab
-├── docs/        # full beginner tutorial
+├── docs/        # full homelab documentation
 ├── exports/     # sanitized Wazuh dashboard export
 ├── scripts/     # Markdown command bundles for common operations
 ├── README.md
@@ -201,15 +203,15 @@ This is a controlled educational lab.
 
 ## Design Note
 
-This guide documents the final Wazuh-based version of the homelab. If you want to compare it with the earlier lightweight version built for hardware-constrained setups, see the archived PDF:
+This repository documents the final Wazuh-based version of my homelab. If you want to compare it with the earlier lightweight version built for hardware-constrained setups, see the archived PDF:
 
 [Old Homelab Documentation](<./archive/old-documentation/Homelab Documentation.pdf>)
 
 ## Project Contents
 
-The guide includes:
+This repo includes:
 
-- complete beginner tutorial sections from OS installation through dashboards
+- complete documentation sections from OS installation through dashboards
 - operations and playbook sections for starting, stopping, and checking the lab
 - sanitized configuration examples
 - sanitized Wazuh dashboard export
