@@ -1,0 +1,18 @@
+# Sanitized Suricata local rules for the homelab.
+#
+# Replace placeholders such as <METASPLOITABLE_IP> only in your private lab copy.
+# Do not commit real addresses to the public repository.
+
+alert icmp any any -> $HOME_NET any (msg:"HOMELAB Suricata ICMP ping test"; sid:1000001; rev:1;)
+
+alert tcp any any -> <METASPLOITABLE_IP> any (msg:"HOMELAB possible port sweep to Metasploitable"; flags:S; threshold:type both, track by_src, count 10, seconds 60; sid:1000002; rev:1;)
+
+alert tcp any any -> $HOME_NET [3002,8080] (msg:"HOMELAB Tailscale connection to vulnerable web app"; flow:to_server,established; sid:1000003; rev:1;)
+
+alert http any any -> $HOME_NET any (msg:"HOMELAB Suricata web SQLi-like request over Tailscale"; flow:to_server,established; http.uri; pcre:"/('|%27|union|select|or%20[0-9]+=|--)/Ui"; sid:1000004; rev:1;)
+
+alert http any any -> $HOME_NET any (msg:"HOMELAB Suricata web /etc/passwd request over Tailscale"; flow:to_server,established; http.uri; content:"/etc/passwd"; nocase; sid:1000005; rev:1;)
+
+alert http any any -> $HOME_NET any (msg:"HOMELAB Suricata encoded traversal attempt over Tailscale"; flow:to_server,established; http.uri; content:"%2e"; nocase; content:"%2f"; nocase; sid:1000006; rev:1;)
+
+alert tcp any any -> $HOME_NET any (msg:"HOMELAB possible Nmap or port scan from Tailscale client to homelab"; flags:S; threshold:type both, track by_src, count 8, seconds 60; sid:1000007; rev:1;)

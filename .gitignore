@@ -1,0 +1,17 @@
+# Local/editor files
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+.obsidian/
+.vscode/
+
+# Secrets and local exports
+.env
+*.key
+*.pem
+secrets/
+
+# Large/private local artifacts
+private/
+raw-exports/

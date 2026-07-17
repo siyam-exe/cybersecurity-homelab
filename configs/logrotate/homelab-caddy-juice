@@ -1,0 +1,12 @@
+# Sanitized final logrotate template for Caddy Juice Shop/DVWA logs.
+# Copy to: /etc/logrotate.d/homelab-caddy-juice
+
+/var/log/homelab/caddy-juice/*.log {
+    weekly
+    rotate 4
+    compress
+    missingok
+    notifempty
+    create 0640 root adm
+    copytruncate
+}
